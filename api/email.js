@@ -21,7 +21,9 @@ const getInfoData = () => {
     }
 }
 
+
 /********** Api ***********/
+
 
 /** POST /api/email/add-user-contact */
 console.log(`##email http://localhost:${PORT}/api/email/add-user-contact`);
@@ -30,7 +32,8 @@ exports.toAddUserContact = (req, res) => {
         name: req.query.name,
         email: req.query.email,
         phone: req.query.phone,
-    }
+        inst: req.query.inst,
+    };
     userContact.push({...getInfoData(), ...mapUserData});
     var json = JSON.stringify(userContact);
 
@@ -48,13 +51,4 @@ exports.toReadUserContact = (req, res) => {
 
     res.status(200).send(userContact);
 
-};
-
-
-/** POST /api/email/send-template */
-console.log(`##email http://localhost:${PORT}/api/email/send-template`);
-exports.toSendEmailTemplate = (req, res) => {
-    res.status(200).send(``);
-
-    console.log('!!!!!!!send-template', counter.value);
 };
