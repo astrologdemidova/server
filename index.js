@@ -7,7 +7,7 @@ const helmet = require("helmet"); // creates headers that protect from attacks (
 const cors = require("cors");
 // var fs = require('fs');
 var test = require('./api/test.js');
-// var email = require('./api/email.js');
+var email = require('./api/email.js');
 var fortuna = require('./api/fortuna.js');
 
 module.exports = app;
@@ -50,7 +50,7 @@ app.get('/api/test/write-file', test.testWriteFile);
 
 // app.get('/api/email/read-user-contact', email.toReadUserContact);
 // app.post('/api/email/send-template', email.toSendEmailTemplate);
-// app.post('/api/email/add-user-contact', email.toAddUserContact);
+app.post('/api/email/add-user-contact', email.toAddUserContact);
 
 // Fortuna
 
