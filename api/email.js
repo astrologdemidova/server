@@ -1,6 +1,22 @@
 const PORT = process.env.PORT || 8080;
 const fs = require('fs');
-const { nanoid } = require('nanoid')
+const { nanoid } = require('nanoid');
+const nodemailer = require('nodemailer');
+
+/*
+
+Nodemailer api
+
+*/
+let transport = nodemailer.createTransport({
+    // host: 'smtp.mailtrap.io',
+    // port: 2525,
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_LOGIN,
+        pass: process.env.EMAIL_PASS
+    }
+});
 
 // Data
 
@@ -24,7 +40,6 @@ const getInfoData = () => {
 
 /********** Api ***********/
 
-
 /** POST /api/email/add-user-contact */
 console.log(`##email http://localhost:${PORT}/api/email/add-user-contact`);
 exports.toAddUserContact = (req, res) => {
@@ -34,7 +49,7 @@ exports.toAddUserContact = (req, res) => {
         phone: req.query.phone,
         inst: req.query.inst,
     };
-    userContact.push({...getInfoData(), ...mapUserData});
+    userContact.push({ ...getInfoData(), ...mapUserData });
     var json = JSON.stringify(userContact);
 
     fs.writeFile('database/user_contact.json', json, 'utf8', (err) => {
@@ -42,6 +57,32 @@ exports.toAddUserContact = (req, res) => {
         res.status(200).send(`success`);
     });
 
+    // send message to user
+    const message = {
+        from: process.env.EMAIL_LOGIN, // Sender address
+        to: req.query.email,         // List of recipients
+        subject: 'shop.astrologdemidova.ru | Колесо фортуны',
+        html: 'This <i>message</i> with <strong>attachments</strong>.',
+        // attachments: [
+        //     {
+        //         filename: 'greetings.txt',
+        //         path: '/assets/files/'
+        //     },
+        //     {
+        //         filename: 'greetings.txt',
+        //         content: 'Message from file.',
+        //     },
+        // ]
+    };
+
+
+    transport.sendMail(message, function (err, info) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(info);
+        }
+    });
 };
 
 
