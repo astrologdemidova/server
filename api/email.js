@@ -60,7 +60,7 @@ exports.toAddUserContact = (req, res) => {
     // send message to user
     const message = {
         from: process.env.EMAIL_LOGIN, // Sender address
-        to: req.query.email,         // List of recipients
+        to: `${req.query.email}, ${process.env.EMAIL_LOGIN}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         html: 'This <i>message</i> with <strong>attachments</strong>.',
         // attachments: [
