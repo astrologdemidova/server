@@ -48,7 +48,7 @@ app.get('/api/test/write-file', test.testWriteFile);
 
 // Email
 
-// app.get('/api/email/read-user-contact', email.toReadUserContact);
+app.get('/api/email/read-user-contact', email.toReadUserContact);
 // app.post('/api/email/send-template', email.toSendEmailTemplate);
 app.post('/api/email/add-user-contact', email.toAddUserContact);
 
