@@ -9,9 +9,8 @@ Nodemailer api
 
 */
 let transport = nodemailer.createTransport({
-    // host: 'smtp.mailtrap.io',
-    // port: 2525,
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
     auth: {
         user: process.env.EMAIL_LOGIN,
         pass: process.env.EMAIL_PASS
