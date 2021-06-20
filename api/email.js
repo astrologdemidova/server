@@ -51,6 +51,7 @@ exports.toAddUserContact = (req, res) => {
         email: req.query.email,
         phone: req.query.phone,
         inst: req.query.inst,
+        adress: req.query.adress,
         idPrize: req.query.id,
     };
     userContact.push({ ...getInfoData(), ...mapUserData });
