@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 8080;
 console.log(`##fortuna http://localhost:${PORT}/api/fortuna/get-wheel-item`);
 exports.toGetWheelItem = (req, res) => {
     const avilablePrize = [
-        '003',
+        '002',
         '004',
-        '005',
         '006',
+        '008',
     ];
 
     const getRandomInt = (max) => {
