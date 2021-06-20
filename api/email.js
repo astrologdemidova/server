@@ -14,10 +14,8 @@ let transport = nodemailer.createTransport({
     host: 'smtp.jino.ru',
     port: 465,
     auth: {
-        // user: process.env.EMAIL_LOGIN,
-        // pass: process.env.EMAIL_PASS
-        user: 'email@astrologdemidova.ru',
-        pass: '5fpM5Xyfg'
+        user: process.env.EMAIL_LOGIN,
+        pass: process.env.EMAIL_PASS
     }
 });
 
@@ -66,8 +64,7 @@ exports.toAddUserContact = (req, res) => {
 
     // send message TO USER
     const messageUser = {
-        //from: process.env.EMAIL_LOGIN, // Sender address
-        from: 'email@astrologdemidova.ru', // Sender address
+        from: process.env.EMAIL_LOGIN, // Sender address
         to: `${req.query.email}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         html: `
@@ -104,9 +101,8 @@ exports.toAddUserContact = (req, res) => {
 
     // send message TO CUSTOMER
     const messageCustomer = {
-        //from: process.env.EMAIL_LOGIN, // Sender address
-        from: 'email@astrologdemidova.ru', // Sender address
-        to: `${process.env.EMAIL_LOGIN}`, // List of recipients
+        from: process.env.EMAIL_LOGIN, // Sender address
+        to: `${process.env.SEND_COPY_EMAIL}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         html: `
         <body>
