@@ -44,7 +44,7 @@ const getInfoData = () => {
 /** POST /api/email/add-user-contact */
 console.log(`##email http://localhost:${PORT}/api/email/add-user-contact`);
 exports.toAddUserContact = (req, res) => {
-    const notificationIdPrize = ['001', '002', '003'];
+    const notificationIdPrize = ['001', '002', '003', '006'];
 
     const mapUserData = {
         name: req.query.name,
