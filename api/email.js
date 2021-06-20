@@ -46,7 +46,7 @@ const getInfoData = () => {
 /** POST /api/email/add-user-contact */
 console.log(`##email http://localhost:${PORT}/api/email/add-user-contact`);
 exports.toAddUserContact = (req, res) => {
-    const notificationIdPrize = ['001', '002', '003', '006'];
+    const notificationIdPrize = ['001', '003', '005', '007', '009', '010'];
 
     const mapUserData = {
         name: req.query.name,
@@ -120,14 +120,20 @@ exports.toAddUserContact = (req, res) => {
                     <th>Приз</th>
                     <th>Имя</th>
                     <th>Номер</th>
-                    <th>Почта</th>
-                    <th>Инстаграм</th>
-                    <th>Адресс</th>
                 </tr>
                 <tr>
                     <td>${req.query.id}</td>
                     <td>${req.query.name}</td>
                     <td>${req.query.phone}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Почта</th>
+                    <th>Инстаграм</th>
+                    <th>Адресс</th>
+                </tr>
+                <tr>
                     <td>${req.query.email}</td>
                     <td>${req.query.inst}</td>
                     <td>${req.query.adress}</td>
@@ -135,7 +141,7 @@ exports.toAddUserContact = (req, res) => {
             </table>
             <table>
                 <tr>
-                    <td>А ниже копия письма для юзера:</td>
+                    <td><b>А ниже копия письма для юзера:</b></td>
                 </tr>
             </table>
             <table>
