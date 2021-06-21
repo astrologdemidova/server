@@ -21,6 +21,12 @@ let transport = nodemailer.createTransport({
 
 // Data
 
+var prizeCounter = {};
+fs.readFile('database/prize_counter.json', 'utf8', (err, data) => {
+    // if (err) return counter = { value: 0 };
+    prizeCounter = JSON.parse(data)
+});
+
 var userContact = [];
 fs.readFile('database/user_contact.json', 'utf8', (err, data) => {
     if (err) return;
