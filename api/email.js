@@ -70,7 +70,15 @@ exports.toAddUserContact = (req, res) => {
     });
 
     // send message TO USER
-    var filePath = path.join(__dirname, '../files/Denezhnaya_sfera.pdf');
+    var fileName002 = '91A5B3DB-1830-43BD-96AE-AC10143247DF.pdf'
+    var filePath002 = path.join(__dirname, '../files/91A5B3DB-1830-43BD-96AE-AC10143247DF.pdf');
+    var fileName004 = 'Znaki_ot_Vselennoi_774_pdf.pdf'
+    var filePath004 = path.join(__dirname, '../files/Znaki_ot_Vselennoi_774_pdf.pdf');
+    var fileName006 = 'Denezhnaya_sfera.pdf'
+    var filePath006 = path.join(__dirname, '../files/Denezhnaya_sfera.pdf');
+    var fileName008 = '501577A0-7DF9-4244-8EF2-88804E87D96D.pdf'
+    var filePath008 = path.join(__dirname, '../files/501577A0-7DF9-4244-8EF2-88804E87D96D.pdf');
+    
     const messageUser = {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${req.query.email}`, // List of recipients
@@ -88,8 +96,16 @@ exports.toAddUserContact = (req, res) => {
         `,
         attachments: [
             {
-                filename: 'Denezhnaya_sfera.pdf',
-                path: filePath
+                filename:
+                    req.query.id === '002' ? fileName002 :
+                        req.query.id === '004' ? fileName004 :
+                            req.query.id === '006' ? fileName006 :
+                                req.query.id === '008' ? fileName008 : '',
+                path:
+                    req.query.id === '002' ? filePath002 :
+                        req.query.id === '004' ? filePath004 :
+                            req.query.id === '006' ? filePath006 :
+                                req.query.id === '008' ? filePath008 : '',
             },
         ]
     };
