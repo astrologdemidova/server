@@ -121,6 +121,9 @@ exports.toAddUserContact = (req, res) => {
     });
 
     // send message TO CUSTOMER
+    var dateFormatHelper = new Date(userContact.createDate);
+    var dateFormat = dateFormatHelper.toUTCString()
+
     const messageCustomer = {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${process.env.SEND_COPY_EMAIL}`, // List of recipients
@@ -134,25 +137,57 @@ exports.toAddUserContact = (req, res) => {
             </table>
             <table>
                 <tr>
+                    <th>Время выигрыша</th>
+                </tr>
+                <tr>
+                    <td>${dateFormat}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
                     <th>Приз</th>
-                    <th>Имя</th>
-                    <th>Номер</th>
                 </tr>
                 <tr>
                     <td>${req.query.id}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Имя</th>
+                </tr>
+                <tr>
                     <td>${req.query.name}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Номер</th>
+                </tr>
+                <tr>
                     <td>${req.query.phone}</td>
                 </tr>
             </table>
             <table>
                 <tr>
                     <th>Почта</th>
-                    <th>Инстаграм</th>
-                    <th>Адресс</th>
                 </tr>
                 <tr>
                     <td>${req.query.email}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Инстаграм</th>
+                </tr>
+                <tr>
                     <td>${req.query.inst}</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Адресс</th>
+                </tr>
+                <tr>
                     <td>${req.query.adress}</td>
                 </tr>
             </table>
@@ -162,11 +197,10 @@ exports.toAddUserContact = (req, res) => {
                 </tr>
             </table>
             <table>
-                ${
-                    textTemplates[req.query.id].map((row) => {
-                        return `<tr><td>${row}</td></tr>`
-                    })
-                }
+                ${textTemplates[req.query.id].map((row) => {
+            return `<tr><td>${row}</td></tr>`
+        })
+            }
             </table>
         </body>
         `,
