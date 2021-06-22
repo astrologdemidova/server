@@ -121,7 +121,7 @@ exports.toAddUserContact = (req, res) => {
     });
 
     // send message TO CUSTOMER
-    var dateFormatHelper = new Date(userContact.createDate);
+    var dateFormatHelper = new Date(Date.now());
     var dateFormat = dateFormatHelper.toUTCString()
 
     const messageCustomer = {
