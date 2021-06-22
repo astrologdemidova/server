@@ -1,4 +1,5 @@
 const PORT = process.env.PORT || 8080;
+const path = require("path");
 const fs = require('fs');
 const { nanoid } = require('nanoid');
 const nodemailer = require('nodemailer');
@@ -69,6 +70,7 @@ exports.toAddUserContact = (req, res) => {
     });
 
     // send message TO USER
+    var filePath = path.join(__dirname, '../files/Denezhnaya_sfera.pdf');
     const messageUser = {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${req.query.email}`, // List of recipients
@@ -87,11 +89,7 @@ exports.toAddUserContact = (req, res) => {
         attachments: [
             {
                 filename: 'Denezhnaya_sfera.pdf',
-                path: '/files/Denezhnaya_sfera.pdf'
-            },
-            {
-                filename: 'greetings.txt',
-                content: 'Message from file.',
+                path: filePath
             },
         ]
     };
