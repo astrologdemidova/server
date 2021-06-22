@@ -84,16 +84,16 @@ exports.toAddUserContact = (req, res) => {
             </table>
         </body>
         `,
-        // attachments: [
-        //     {
-        //         filename: 'greetings.txt',
-        //         path: '/assets/files/'
-        //     },
-        //     {
-        //         filename: 'greetings.txt',
-        //         content: 'Message from file.',
-        //     },
-        // ]
+        attachments: [
+            {
+                filename: 'Denezhnaya_sfera.pdf',
+                path: '/files/Denezhnaya_sfera.pdf'
+            },
+            {
+                filename: 'greetings.txt',
+                content: 'Message from file.',
+            },
+        ]
     };
 
 
