@@ -49,6 +49,13 @@ exports.toGetWheelItem = (req, res) => {
 
             fs.writeFile('database/prize_counter.json', json, 'utf8', (err) => {
                 if (err) throw err;
+                const git = require('simple-git');
+                git()
+                    .add('database/prize_counter.json')
+                    .commit("commit database/prize_counter.json!")
+                    .push('origin', 'main')
+                    .then((i) => console.log('!***push', i))
+                    .catch((err) => console.error('!***failed: ', err));
             });
         }
 
