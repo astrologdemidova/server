@@ -51,10 +51,10 @@ const REPO = 'github.com/astrologdemidova/server';
 const git = require('simple-git');
 const remote = `https://${USER}:${PASS}@${REPO}`;
 git()
-    .addConfig('user.name', 'astrologdemidova')
-    .addConfig('user.email', 'astrologdemidova777@gmail.com')
     .init()
     .addRemote('origin', remote).fetch()
+    .addConfig('user.name', 'astrologdemidova')
+    .addConfig('user.email', 'astrologdemidova777@gmail.com')
     .add('./*')
     .commit("first commit!")
     .checkoutBranch('main', 'origin/main')
