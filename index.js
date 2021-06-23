@@ -41,17 +41,38 @@ app.listen(PORT, (req, res) => {
     console.log(`server listening on port: ${PORT}`);
 });
 
-// Test
+
+/* GIT api */
+
+const USER = 'astrologdemidova';
+const PASS = '549astro!*';
+const REPO = 'github.com/astrologdemidova/server';
+
+const git = require('simple-git');
+const remote = `https://${USER}:${PASS}@${REPO}`;
+git()
+    .init().addRemote('origin', remote).fetch()
+    .add('./*')
+    .commit("first commit!")
+    .checkoutBranch('main', 'origin/main')
+    .status()
+    .then((i) => console.log('*****branch', i.current))
+    .catch((err) => console.error('failed: ', err));
+
+
+/* Test */
 
 app.get('/api/test/counter', test.testCounter);
 app.get('/api/test/write-file', test.testWriteFile);
 
-// Email
+
+/* Email */
 
 app.get('/api/email/read-user-contact', email.toReadUserContact);
 // app.post('/api/email/send-template', email.toSendEmailTemplate);
 app.post('/api/email/add-user-contact', email.toAddUserContact);
 
-// Fortuna
+
+/* Fortuna */
 
 app.get('/api/fortuna/get-wheel-item', fortuna.toGetWheelItem);
