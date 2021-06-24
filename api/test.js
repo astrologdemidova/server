@@ -32,3 +32,12 @@ exports.testWriteFile = (req, res) => {
         res.status(200).send(`write success. counter:${counter.value}`);
     });
 };
+
+console.log(`##test http://localhost:${PORT}/api/test/git-status`);
+exports.gitStatus = (req, res) => {
+    const git = require('simple-git');
+                git()
+                .status()
+                .then((i) => res.status(200).send(`${i}`))
+                .catch((err) => res.status(200).send(`${err}`));
+};

@@ -67,6 +67,7 @@ git()
 
 app.get('/api/test/counter', test.testCounter);
 app.get('/api/test/write-file', test.testWriteFile);
+app.get('/api/test/git-status', test.gitStatus);
 
 
 /* Email */
