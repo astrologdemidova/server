@@ -38,6 +38,6 @@ exports.gitStatus = (req, res) => {
     const git = require('simple-git');
                 git()
                 .status()
-                .then((i) => res.status(200).send(`${i}`))
-                .catch((err) => res.status(200).send(`${err}`));
+                .then((i) => res.status(200).send(`SUCCESS GIT STUATUS: ${JSON.stringify(i)}`))
+                .catch((err) => res.status(200).send(`ERR GIT STATUS${JSON.stringify(err)}`));
 };
