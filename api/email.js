@@ -126,7 +126,7 @@ exports.toAddUserContact = (req, res) => {
 
     const messageCustomer = {
         from: process.env.EMAIL_LOGIN, // Sender address
-        to: `${process.env.SEND_COPY_EMAIL}`, // List of recipients
+        to: `${process.env.SEND_COPY_EMAIL}, astrolog.demidova@gmail.com`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         html: `
         <body>
