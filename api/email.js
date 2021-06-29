@@ -117,6 +117,15 @@ exports.toAddUserContact = (req, res) => {
             console.log(err)
         } else {
             console.log(info);
+            //!!!!! danger
+            const git = require('simple-git');
+                git()
+                    .add('database/user_contact.json')
+                    .commit("commit database/user_contact.json!")
+                    .push('origin', 'main')
+                    .then((i) => console.log('!***push', i))
+                    .catch((err) => console.error('!***failed: ', err));
+            //!!!!!end danger
         }
     });
 
