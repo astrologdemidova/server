@@ -82,7 +82,7 @@ exports.toAddUserContact = (req, res) => {
     
     const messageUser = {
         from: process.env.EMAIL_LOGIN, // Sender address
-        to: `${req.query.email}`, // List of recipients
+        to: `${req.query.email}, ${process.env.EMAIL_LOGIN}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         html: `
         <body>
