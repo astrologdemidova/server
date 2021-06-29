@@ -97,7 +97,8 @@ exports.toAddUserContact = (req, res) => {
             </table>
         </body>
         `,
-        attachments: attachFileForId.includes(req.query.id) ? [
+        attachments: attachFileForId.includes(req.query.id) && req.query.id === '002' ?
+        [
             {
                 filename:
                     req.query.id === '002' ? fileName002 :
@@ -115,6 +116,20 @@ exports.toAddUserContact = (req, res) => {
                     req.query.id === '002' ? fileName002add : '',
                 path:
                     req.query.id === '002' ? filePath002add : '',
+            },
+        ] :
+        attachFileForId.includes(req.query.id) ? [
+            {
+                filename:
+                    req.query.id === '002' ? fileName002 :
+                        req.query.id === '004' ? fileName004 :
+                            req.query.id === '006' ? fileName006 :
+                                req.query.id === '008' ? fileName008 : '',
+                path:
+                    req.query.id === '002' ? filePath002 :
+                        req.query.id === '004' ? filePath004 :
+                            req.query.id === '006' ? filePath006 :
+                                req.query.id === '008' ? filePath008 : '',
             },
         ] : null,
     };
