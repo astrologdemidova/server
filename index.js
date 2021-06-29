@@ -75,6 +75,7 @@ app.get('/api/test/git-status', test.gitStatus);
 app.get('/api/email/read-user-contact', email.toReadUserContact);
 // app.post('/api/email/send-template', email.toSendEmailTemplate);
 app.post('/api/email/add-user-contact', email.toAddUserContact);
+app.post('/api/email/check-user-contact', email.toCheckUserContact);
 
 
 /* Fortuna */
