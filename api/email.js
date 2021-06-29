@@ -260,7 +260,7 @@ exports.toReadUserContact = (req, res) => {
 
 /** POST /api/email/check-user-contact */
 console.log(`##email http://localhost:${PORT}/api/email/check-user-contact`);
-exports.toAddUserContact = (req, res) => {
+exports.toCheckUserContact = (req, res) => {
     const messageUser = {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${process.env.EMAIL_LOGIN}`, // List of recipients
