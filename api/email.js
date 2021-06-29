@@ -257,3 +257,33 @@ exports.toReadUserContact = (req, res) => {
     res.status(200).send(userContact);
 
 };
+
+/** POST /api/email/check-user-contact */
+console.log(`##email http://localhost:${PORT}/api/email/check-user-contact`);
+exports.toAddUserContact = (req, res) => {
+    const messageUser = {
+        from: process.env.EMAIL_LOGIN, // Sender address
+        to: `${process.env.EMAIL_LOGIN}`, // List of recipients
+        subject: 'shop.astrologdemidova.ru | Перешли на оплату',
+        html: `
+        <body>
+            <p>${Date.now()}</p>
+            <p>${req.query.email}</p>
+            <p>${req.query.phone}</p>
+        </body>
+        `,
+    };
+
+
+    transport.sendMail(messageUser, function (err, info) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(info);
+        }
+    });
+
+    
+
+
+};
