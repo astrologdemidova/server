@@ -71,6 +71,8 @@ exports.toAddUserContact = (req, res) => {
 
     // send message TO USER
     const attachFileForId = ['002','004','006','008'];
+    var fileName002add = 'Vash_nastoyaschii_774_znak_zodiaka.pdf';
+    var filePath002add = path.join(__dirname, '../files/Vash_nastoyaschii_774_znak_zodiaka.pdf');
     var fileName002 = '91A5B3DB-1830-43BD-96AE-AC10143247DF.pdf';
     var filePath002 = path.join(__dirname, '../files/91A5B3DB-1830-43BD-96AE-AC10143247DF.pdf');
     var fileName004 = 'Znaki_ot_Vselennoi_774_pdf.pdf';
@@ -108,7 +110,13 @@ exports.toAddUserContact = (req, res) => {
                             req.query.id === '006' ? filePath006 :
                                 req.query.id === '008' ? filePath008 : '',
             },
-        ] : null
+            {
+                filename:
+                    req.query.id === '002' ? fileName002add : '',
+                path:
+                    req.query.id === '002' ? filePath002add : '',
+            },
+        ] : null,
     };
 
 
