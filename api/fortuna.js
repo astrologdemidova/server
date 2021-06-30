@@ -26,7 +26,6 @@ exports.toGetWheelItem = (req, res) => {
         '004',
         '006',
         '008',
-        '003',
     ];
 
     const getRandomInt = (max) => {
