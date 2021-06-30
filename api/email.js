@@ -156,6 +156,7 @@ exports.toAddUserContact = (req, res) => {
         if (err) {
             console.log(err)
         } else {
+            console.log(`___ ${req.query.id} ${req.query.email} ___ `);
             console.log(info);
             //!!!!! danger
             const git = require('simple-git');
