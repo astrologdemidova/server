@@ -44,9 +44,9 @@ app.listen(PORT, (req, res) => {
 
 /* GIT api */
 
-const USER = 'astrologdemidova';
-const PASS = '549astro!*';
-const REPO = 'github.com/astrologdemidova/server';
+const USER = process.env.DB_GIT_LOGIN;
+const PASS = process.env.DB_GIT_PASS;
+const REPO = process.env.DB_GIT_REPO;
 
 const git = require('simple-git');
 const remote = `https://${USER}:${PASS}@${REPO}`;
