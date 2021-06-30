@@ -84,7 +84,7 @@ exports.toAddUserContact = (req, res) => {
     
     const messageUser = {
         from: process.env.EMAIL_LOGIN, // Sender address
-        to: `${req.query.email}, ${process.env.EMAIL_LOGIN}`, // List of recipients
+        to: `${req.query.email}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         html: `
         <body>
@@ -133,6 +133,23 @@ exports.toAddUserContact = (req, res) => {
             },
         ] : null,
     };
+    
+    const messageLog = {
+        from: process.env.EMAIL_LOGIN, // Sender address
+        to: `${process.env.EMAIL_LOGIN}`, // List of recipients
+        subject: `${req.query.email} ${req.query.id} | Колесо фортуны`,
+        html: `
+        <body>
+            <table>
+                ${
+                    textTemplates[req.query.id].map((row) => {
+                        return `<tr><td>${row}</td></tr>`
+                    })
+                }
+            </table>
+        </body>
+        `,
+    };
 
 
     transport.sendMail(messageUser, function (err, info) {
@@ -149,6 +166,14 @@ exports.toAddUserContact = (req, res) => {
                     .then((i) => console.log('!***push', i))
                     .catch((err) => console.error('!***failed: ', err));
             //!!!!!end danger
+        }
+    });
+    
+    transport.sendMail(messageLog, function (err, info) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(info);
         }
     });
 
