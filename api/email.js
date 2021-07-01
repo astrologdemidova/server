@@ -99,7 +99,7 @@ exports.toAddUserContact = (req, res) => {
                         <span>
                             вы сделали заказ на сайте 
                         </span>
-                        <a href="https://astrologdemidova.ru" target="_blank">astrologdemidova.ru</a>
+                        <a href="https://shop.astrologdemidova.ru" target="_blank">shop.astrologdemidova.ru</a>
                     </td>
                 </tr>
                 <tr>
