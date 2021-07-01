@@ -92,12 +92,53 @@ exports.toAddUserContact = (req, res) => {
         },
         html: `
         <body>
-            <table>
-                ${
-                    textTemplates[req.query.id].map((row) => {
-                        return `<tr><td>${row}</td></tr>`
-                    })
-                }
+            <table align="center">
+                <tr>
+                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;text-align: center;">
+                        <span>Вы получили это письмо по причине: </span><br>
+                        <span>
+                            вы сделали заказ на сайте 
+                        </span>
+                        <a href="https://astrologdemidova.ru" target="_blank">astrologdemidova.ru</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 20px 0;">
+                        <table>
+                                ${
+                                    textTemplates[req.query.id].map((row) => {
+                                        return `
+                                            <tr>
+                                                <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #141414;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
+                                                    ${row}
+                                                </td>
+                                            </tr>
+                                        `
+                                    })
+                                }
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;">
+                        <footer>
+                            <table align="center">
+                                <tr>
+                                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;text-align: center;">
+                                        <span>Астролог Демидова Яна | astrologdemidova@mail.ru</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table align="center">
+                                <tr>
+                                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;text-align: center;">
+                                        <span>ооо «егер»</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </footer>
+                    </td>
+                </tr>
             </table>
         </body>
         `,
@@ -148,12 +189,53 @@ exports.toAddUserContact = (req, res) => {
         },
         html: `
         <body>
-            <table>
-                ${
-                    textTemplates[req.query.id].map((row) => {
-                        return `<tr><td>${row}</td></tr>`
-                    })
-                }
+            <table align="center">
+                <tr>
+                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #555559;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;text-align: center;">
+                        <span>Вы получили это письмо по причине: </span><br>
+                        <span>
+                            вы сделали заказ на сайте 
+                        </span>
+                        <a href="https://astrologdemidova.ru" target="_blank">astrologdemidova.ru</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 20px 0;">
+                        <table>
+                                ${
+                                    textTemplates[req.query.id].map((row) => {
+                                        return `
+                                            <tr>
+                                                <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #141414;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
+                                                    ${row}
+                                                </td>
+                                            </tr>
+                                        `
+                                    })
+                                }
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;">
+                        <footer>
+                            <table align="center">
+                                <tr>
+                                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;text-align: center;">
+                                        <span>Астролог Демидова Яна | astrologdemidova@mail.ru</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table align="center">
+                                <tr>
+                                    <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;text-align: center;">
+                                        <span>ооо «егер»</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </footer>
+                    </td>
+                </tr>
             </table>
         </body>
         `,
