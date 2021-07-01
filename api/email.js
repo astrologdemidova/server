@@ -69,6 +69,22 @@ exports.toAddUserContact = (req, res) => {
         res.status(200).send(`success`);
     });
 
+    /**/
+    console.log('!!!!!!!!!');
+    console.log(
+        textTemplates[req.query.id].map(
+            (row, ind, arr) => {                        
+                return `
+                        <tr>
+                         <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #141414;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
+                            ${row}
+                         </td>
+                        </tr>
+                 `
+        })
+    )
+    console.log('!!!!!!!!!');
+    /**/
     // send message TO USER
     const attachFileForId = ['002','004','006','008'];
     var fileName002add = 'Vash_nastoyaschii_774_znak_zodiaka.pdf';
@@ -106,7 +122,7 @@ exports.toAddUserContact = (req, res) => {
                     <td style="border-collapse: collapse;border: 0;margin: 0;padding: 20px 0;">
                         <table>
                                 ${
-                                    textTemplates[req.query.id].map((row, ind, arr) => {
+                                    textTemplates[req.query.id].map((row) => {
                                         return `
                                             <tr>
                                                 <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #141414;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
@@ -178,17 +194,7 @@ exports.toAddUserContact = (req, res) => {
             },
         ] : null,
     };
-    /**/
-    console.log(textTemplates[req.query.id].map((row, ind, arr) => {
-                                        return `
-                                            <tr>
-                                                <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #141414;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
-                                                    ${row}
-                                                </td>
-                                            </tr>
-                                        `
-                                    }))
-    /**/
+    
     const messageLog = {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${process.env.EMAIL_LOGIN}`, // List of recipients
