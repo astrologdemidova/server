@@ -106,7 +106,10 @@ exports.toAddUserContact = (req, res) => {
                     <td style="border-collapse: collapse;border: 0;margin: 0;padding: 20px 0;">
                         <table>
                                 ${
-                                    textTemplates[req.query.id].map((row) => {
+                                    textTemplates[req.query.id].map((row, ind, arr) => {
+                                        console.log('!!!row', row);
+                                        console.log('!!!ind', ind);
+                                        console.log('!!!arr', arr);
                                         return `
                                             <tr>
                                                 <td style="border-collapse: collapse;border: 0;margin: 0;padding: 0;-webkit-text-size-adjust: none;color: #141414;font-family: Arial, sans-serif;font-size: 16px;line-height: 26px;">
