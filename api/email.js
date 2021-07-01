@@ -86,6 +86,9 @@ exports.toAddUserContact = (req, res) => {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${req.query.email}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
+        headers: {
+            'x-postmaster-msgtype': `msg user ${req.query.id}`,
+        },
         html: `
         <body>
             <table>
@@ -138,6 +141,9 @@ exports.toAddUserContact = (req, res) => {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${process.env.EMAIL_LOGIN}`, // List of recipients
         subject: `${req.query.email} ${req.query.id} | Колесо фортуны`,
+        headers: {
+            'x-postmaster-msgtype': `msg cstmr`,
+        },
         html: `
         <body>
             <table>
@@ -186,6 +192,9 @@ exports.toAddUserContact = (req, res) => {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${process.env.SEND_COPY_EMAIL}, astrolog.demidova@gmail.com`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
+        headers: {
+            'x-postmaster-msgtype': `msg cstmr super`,
+        },
         html: `
         <body>
             <table>
@@ -291,6 +300,9 @@ exports.toCheckUserContact = (req, res) => {
         from: process.env.EMAIL_LOGIN, // Sender address
         to: `${process.env.EMAIL_LOGIN}`, // List of recipients
         subject: 'shop.astrologdemidova.ru | Перешли на оплату',
+        headers: {
+            'x-postmaster-msgtype': `msg check user`,
+        },
         html: `
         <body>
             <p>${Date.now()}</p>
