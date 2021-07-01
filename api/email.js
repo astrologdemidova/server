@@ -69,7 +69,7 @@ exports.toAddUserContact = (req, res) => {
         res.status(200).send(`success`);
     });
 
-    /*
+    /**/
     console.log('!!!!!!!!!');
     console.log(
         textTemplates[req.query.id].map(
@@ -84,7 +84,7 @@ exports.toAddUserContact = (req, res) => {
         })
     )
     console.log('!!!!!!!!!');
-    */
+    /**/
     // send message TO USER
     const attachFileForId = ['002','004','006','008'];
     var fileName002add = 'Vash_nastoyaschii_774_znak_zodiaka.pdf';
