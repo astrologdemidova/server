@@ -88,6 +88,7 @@ exports.toAddUserContact = (req, res) => {
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         headers: {
             'x-postmaster-msgtype': `msg user ${req.query.id}`,
+            'X-Mailru-Msgtype': `msgtype user`,
         },
         html: `
         <body>
@@ -143,6 +144,7 @@ exports.toAddUserContact = (req, res) => {
         subject: `${req.query.email} ${req.query.id} | Колесо фортуны`,
         headers: {
             'x-postmaster-msgtype': `msg cstmr`,
+            'X-Mailru-Msgtype': `msgtype log`,
         },
         html: `
         <body>
@@ -194,6 +196,7 @@ exports.toAddUserContact = (req, res) => {
         subject: 'shop.astrologdemidova.ru | Колесо фортуны',
         headers: {
             'x-postmaster-msgtype': `msg cstmr super`,
+            'X-Mailru-Msgtype': `msgtype cstmr super`,
         },
         html: `
         <body>
