@@ -23,8 +23,10 @@ exports.toGetWheelItem = (req, res) => {
     ];
     
     const avilablePrize = [
+        '002',
         '004',
-        '005',
+        '006',
+        '008',
     ];
     
     
