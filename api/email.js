@@ -393,6 +393,7 @@ exports.toCheckUserContact = (req, res) => {
             <p>${Date.now()}</p>
             <p>${req.query.email}</p>
             <p>${req.query.phone}</p>
+            <p>${req.query.inst}</p>
         </body>
         `,
     };
